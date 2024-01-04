@@ -1,0 +1,23 @@
+{
+  "database": {
+    "name": "habits_db",
+    "tables": {
+      "habits": {
+        "columns": {
+          "id": {
+            "type": "integer",
+            "extras": ["primary key", "autoincrement"]
+          },
+          "name": {
+            "type": "text",
+            "extras": ["not null"]
+          },
+          "frequency": {
+            "type": "text",
+            "extras": ["not null"]
+          }
+        }
+      }
+    }
+  }
+}
