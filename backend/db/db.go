@@ -33,19 +33,6 @@ type Column struct {
 	Extras []string `json:"extras"`
 }
 
-// Example of how to use the config:
-// fmt.Println("Database Name:", config.Database.Name)
-// for tableName, tableDetails := range config.Database.Tables {
-// 	fmt.Println("Table Name:", tableName)
-// 	for columnName, columnDetails := range tableDetails.Columns {
-// 		fmt.Println("Column Name:", columnName)
-// 		fmt.Println("Type:", columnDetails.Type)
-// 		for _, extra := range columnDetails.Extras {
-// 			fmt.Print(extra, ", ")
-// 		}
-// 	}
-// }
-
 func Db_schema() DatabaseConfig {
 	schema, err := os.ReadFile("./db/db_schema.json")
 	if err != nil {
@@ -111,7 +98,7 @@ func (db *Database) FetchFromTable(tableName string) (*[]Record, error) {
 		var r Record
 		err := rows.Scan(&r.ID, &r.Name, &r.Frequency)
 		if err != nil {
-			// handle error
+			return nil, err
 		}
 		records = append(records, r)
 	}

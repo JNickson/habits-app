@@ -20,15 +20,12 @@ type NewHabit struct {
 }
 
 type GetHabit struct {
-	Id int `json:"id,omitempty"` // Pointer type allows for nil value
+	Id int `json:"id,omitempty"`
 }
 
 // UpdateHandler handles the update habit endpoint.
 func UpdateHandler(w http.ResponseWriter, r *http.Request) {
-	// create a new habit
-	// update an exisitng habit
-	// delete an existing habit
-	// get all habits or a specific habit
+
 	if r.Method == http.MethodPost {
 		var habit NewHabit
 		err := json.NewDecoder(r.Body).Decode(&habit)
@@ -91,7 +88,6 @@ func InitializeDatabase() (db.DatabaseConfig, *db.Database, string) {
 	}
 	tableName := "habits"
 
-	// Check if 'habits' table exists in the configuration
 	if _, exists := config.Database.Tables[tableName]; !exists {
 		log.Fatal("Habits table not found in configuration")
 	}

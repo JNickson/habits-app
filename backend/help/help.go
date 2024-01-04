@@ -14,7 +14,7 @@ func HelpHandler(w http.ResponseWriter, r *http.Request) {
 				},
 				"GET": map[string]interface{}{
 					"Description": "Retrieve all habits or a specific habit.",
-					"Details":     "Use an empty body {} for all habits or {\"id\": \"UUID\"} for a specific habit.",
+					"Details":     "Use an empty body {} for all habits or {\"id\": \"int\"} for a specific habit.",
 				},
 				"POST": map[string]interface{}{
 					"Description": "Create a new habit.",
